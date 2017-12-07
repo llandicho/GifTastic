@@ -2,9 +2,37 @@
 <html>
 <head>
 	<title>GifTastic</title>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 <body>
 	Hello GifTastic!
+
+<button data-search="Dog">Dog</button>
+<button data-search="Cat">Cat</button>
+
+<div id="GifHere"></div>
+
+<script type="text/javascript">
+	
+var topics = ["Dog", "Cat"];
+
+
+$('button').on('click', function(){
+	var x = $(this).data("search");
+
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+x+"&api_key=dc6zaTOxFJmzC&limit=10";
+	console.log(queryURL);
+
+
+
+};
+
+
+
+
+</script>
 
 </body>
 </html>
