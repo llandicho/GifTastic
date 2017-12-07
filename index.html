@@ -3,7 +3,8 @@
 <head>
 	<title>GifTastic</title>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 </head>
 <body>
@@ -26,8 +27,18 @@ $('button').on('click', function(){
 	console.log(queryURL);
 
 
+	$.ajax({url: queryURL, method: 'GET'})
+	.done(function(response){
+		console.log(response);
+		for(var i=0;i<response.data.length;i++){
+			$("#GifHere").prepend("<p>Rating: "+response.data[i].rating+"</p>");
+			$("#GifHere").prepend("<img src=' "+response.data[i].images.downsized.url+"'>");
+		}
+	})
 
-};
+	})
+
+
 
 
 
